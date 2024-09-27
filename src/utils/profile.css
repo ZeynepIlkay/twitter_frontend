@@ -1,0 +1,124 @@
+.left-container, .middle-container, .right-container {
+    width: 33.3%; /* Konteynerlerin grid yapısı altında eşit genişlikte olması için */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .left-container {
+    
+    align-items: center;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    justify-content: flex-start; /* İçeriği yukarı hizalamak için */
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center; /* Logoyu yatay olarak hizalamak için */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .logox {
+    width: 70%;
+    height: 70%;
+  }
+  
+  .profileContainer {
+    display: flex;
+  }
+  
+  /* Sol paneldeki linkler */
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    color: white;
+  }
+  
+  .nav-link:hover {
+    background-color: #4b5563; /* Hover için gri arka plan */
+    cursor: pointer;
+  }
+  
+  .nav-icon {
+    margin-right: 27px;
+    font-size: 1.25rem;
+  }
+  
+  .send-button {
+    width: 200%;
+    
+    background-color: #1da1f2;
+    color: white;
+    padding: 15px; /* Butonun boyutunu artırmak için padding'i artırdık */
+    font-size: 1.25rem; /* Butonun yazı boyutunu artırdık */
+    border-radius: 9999px; /* Tam yuvarlak buton */
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .send-button:hover {
+    background-color: #1a8cd8; /* Hover'da koyu mavi */
+  }
+  
+  .profile-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+  }
+  
+  .profile-info {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .profile-image {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .profile-info h4 {
+    font-size: 0.875rem; /* Profil isminin yazı boyutunu küçülttük */
+    margin: 0;
+  }
+  
+  .profile-info p {
+    margin: 0;
+    font-size: 0.75rem; /* Profil kullanıcı adının yazı boyutunu küçülttük */
+  }
+  
+  .more-options {
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 0;
+  }
+  
+  
+  
+  /* Sağ sütundaki yazıların sağa yaslanması */
+  .right-container {
+    text-align: left;
+  }
+  
+  /* Genel yazı ve ikonların beyaz olması */
+  .middle-container h1,
+  .right-container h1,
+  .left-container .nav-link span,
+  .left-container .nav-icon {
+    color: white;
+  }
+  
