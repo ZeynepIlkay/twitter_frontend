@@ -164,7 +164,18 @@ nav {
     display: none; /* Profil bilgisi mobilde gizlenir */
   }
 
+  .right-container {
+    display: none !important; /* Sağ kolon 768px'den küçükse gizle */
+  }
+
+  .middle-container {
+    width: 160% !important; /* Diğer kolonlar tam genişlik kaplasın */
+  }
+
+
+
 }
+
 
 
 
@@ -205,7 +216,7 @@ nav {
 
 
 .search-input {
-  width: 60%;
+  width: 65%;
   padding: 10px 10px 10px 40px;
   border-radius: 50px;
   background-color: black;

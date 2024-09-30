@@ -125,9 +125,6 @@ const Profile = () => {
         </div>
       </div>
 
-
-
-
       {/* Takip Edilebilecek Profil Önerisi */}
       <div className="profile-suggestion">
         <div className="suggestion-info">
@@ -180,23 +177,44 @@ const Profile = () => {
       <div className="trending">
         <h2>İlgini çekebilecek gündemler</h2>
         <div className="trending-item">
-          <p>Akbank</p>
-          <p className="posts-count">36,2 B posts</p>
+          <div className="trending-text">
+            <p className="posts-count">İş dünyası ve finans</p>
+            <p className="trending-topic">Akbank</p>
+            <p className="posts-count">41,8 B posts</p>
+          </div>
+          <div className="menu-dots">•••</div>
         </div>
+
         <div className="trending-item">
-          <p>Fulya Öztürk</p>
-          <p className="posts-count">14,3 B posts</p>
+          <div className="trending-text">
+            <p className="posts-count">Türkiye tarihinde gündemde</p>
+            <p className="trending-topic">Fulya Öztürk</p>
+            <p className="posts-count">14,3 B posts</p>
+          </div>
+          <div className="menu-dots">•••</div>
         </div>
+
         <div className="trending-item">
-          <p>Arapların</p>
-          <p className="posts-count">3.454 posts</p>
+          <div className="trending-text">
+            <p className="posts-count">Türkiye tarihinde gündemde</p>
+            <p className="trending-topic">Eda Erdem</p>
+            <p className="posts-count">3.454 posts</p>
+          </div>
+          <div className="menu-dots">•••</div>
         </div>
+
         <div className="trending-item">
-          <p>Van Ferit Melen Havalimanı'nda</p>
-          <p className="posts-count">2.124 posts</p>
+          <div className="trending-text">
+            <p className="posts-count">Gündemdekiler</p>
+            <p className="trending-topic">Van Ferit Melen Havalimanı'nda</p>
+            <p className="posts-count">2.124 posts</p>
+          </div>
+          <div className="menu-dots">•••</div>
         </div>
+
         <button className="more-button">Daha fazla göster</button>
       </div>
+
 
       {/* Footer */}
       <footer className="footer">
