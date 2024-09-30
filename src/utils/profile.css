@@ -1,124 +1,165 @@
+.profileContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Üç eşit sütun */
+  height: 100vh;
+}
+
 .left-container, .middle-container, .right-container {
-    width: 33.3%; /* Konteynerlerin grid yapısı altında eşit genişlikte olması için */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
   
-  .left-container {
-    
-    align-items: center;
+}
+
+.left-container {
+  background-color: black;
+  color: white;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 25px;
+}
+
+/* Logo üstte sabit, ikonlarla aynı hizada */
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logox {
+  width: 30px; /* Logoyu ikonlarla aynı boyutta yap */
+  height: 30px;
+  margin-right: 20px; /* İkonlarla aynı hizayı sağlamak için boşluk */
+}
+.premium-logo {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+/* Linkler konteynerın tam ortasında kalacak */
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Linkleri sola hizala */
+  justify-content: center; /* Linkleri tam ortada hizala */
+  flex-grow: 1; /* Orta alanda kalmalarını sağlar */
+  width: 100%;
+}
+
+/* Linkler ve buton aynı hizada */
+.nav-link,
+.send-button {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  justify-content: flex-start;
+  width: 100%; /* Linkler ve buton tam genişlikte */
+}
+
+
+
+.nav-icon {
+  margin-right: 20px;
+  font-size: 1.25rem;
+}
+
+.icon-container {
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon horizontally */
+  width: 25px; /* Adjust the width */
+  height: 25px; /* Adjust the height */
+  border: 2px solid white; /* Border style */
+  border-radius: 10%; /* Make it circular */
+  margin-right : 10px; /* Space between icon and text */
+  padding: 0;
+}
+
+.send-button {
+  background-color: #1da1f2;
+  color: white;
+  font-size: 1.25rem;
+  border-radius: 9999px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  width: 40%; /* Buton linklerle aynı genişlikte */
+  justify-content: center;
+}
+
+.send-button:hover {
+  background-color: #1a8cd8;
+}
+
+.profile-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  margin-top: 20px;
+  font-size: 0.875rem; /* Küçük yazı boyutu */
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+  width: 33%;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 30px; /* Profil resmi küçültüldü */
+  height: 30px;
+  margin-right: 10px;
+}
+
+.profile-info h4 {
+  font-size: 0.875rem; /* Profil ismi küçültüldü */
+  margin: 0;
+}
+
+.profile-info p {
+  margin: 0;
+  padding: 0;
+  font-size: 0.75rem; /* Kullanıcı adı küçültüldü */
+
+}
+
+.more-options {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 5px; /* Üç nokta için biraz boşluk */
+}
+
+/* Mobil uyum için ayarlar */
+@media (max-width: 1200px) {
+  .nav-link span {
+    display: none; /* Küçük ekranlarda yazılar gizlenir */
+  }
+  .left-container{
     font-size: 30px;
-    text-decoration: none;
-    color: white;
-    justify-content: flex-start; /* İçeriği yukarı hizalamak için */
   }
-  
-  a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center; /* Logoyu yatay olarak hizalamak için */
-    padding: 0;
-    margin: 0;
-  }
-  
-  .logox {
-    width: 70%;
-    height: 70%;
-  }
-  
-  .profileContainer {
-    display: flex;
-  }
-  
-  /* Sol paneldeki linkler */
-  .nav-link {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    color: white;
-  }
-  
-  .nav-link:hover {
-    background-color: #4b5563; /* Hover için gri arka plan */
-    cursor: pointer;
-  }
-  
-  .nav-icon {
-    margin-right: 27px;
-    font-size: 1.25rem;
-  }
-  
+
   .send-button {
-    width: 200%;
-    
-    background-color: #1da1f2;
-    color: white;
-    padding: 15px; /* Butonun boyutunu artırmak için padding'i artırdık */
-    font-size: 1.25rem; /* Butonun yazı boyutunu artırdık */
-    border-radius: 9999px; /* Tam yuvarlak buton */
-    text-align: center;
-    transition: background-color 0.3s ease;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Yuvarlak buton */
+    justify-content: center;
+    padding: 0;
+  
+    background-image: url('C:/Users/zeyne/OneDrive/Masaüstü/twitter_frontend/public/img/gonder.png'); /* Twitter'ın gönder logosunun yolunu belirtin */
+    background-size: cover; /* Resmin buton alanını tamamen kaplamasını sağlayın */
+    font-size: 0; /* Metin yerine bir resim kullandığımız için metni gizleyin */
   }
   
-  .send-button:hover {
-    background-color: #1a8cd8; /* Hover'da koyu mavi */
-  }
-  
+
   .profile-info-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 40%;
+    display: none; /* Profil bilgisi mobilde gizlenir */
   }
-  
-  .profile-info {
-    display: flex;
-    align-items: center;
-    
-  }
-  
-  .profile-image {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .profile-info h4 {
-    font-size: 0.875rem; /* Profil isminin yazı boyutunu küçülttük */
-    margin: 0;
-  }
-  
-  .profile-info p {
-    margin: 0;
-    font-size: 0.75rem; /* Profil kullanıcı adının yazı boyutunu küçülttük */
-  }
-  
-  .more-options {
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin: 0;
-  }
-  
-  
-  
-  /* Sağ sütundaki yazıların sağa yaslanması */
-  .right-container {
-    text-align: left;
-  }
-  
-  /* Genel yazı ve ikonların beyaz olması */
-  .middle-container h1,
-  .right-container h1,
-  .left-container .nav-link span,
-  .left-container .nav-icon {
-    color: white;
-  }
-  
+}
