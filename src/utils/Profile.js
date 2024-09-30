@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faSearch, faBell, faEnvelope, faUser, faEllipsisH, faUsers, faGem, faBuilding } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faSearch, faBell, faEnvelope, faUser, faEllipsisH, faUsers } from '@fortawesome/free-solid-svg-icons';
 import './profile.css';
 import { FaSlash } from 'react-icons/fa';
 
@@ -96,9 +96,123 @@ const Profile = () => {
       </div>
 
       {/* Right Column - Additional Widgets */}
-      <div className="right-container bg-gray-200 p-5 text-white">
-        <h1 className="text-xl font-semibold">Widgets/Extras</h1>
+      <div className="right-container">
+      {/* Arama Kutusu */}
+          
+      <div className="search-container">
+        <div className="input-wrapper">
+          <span className="search-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon h-5 w-5 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-4.35-4.35M16.5 10.5a6 6 0 11-12 0 6 6 0z"
+              />
+            </svg>
+          </span>
+          <input
+            type="text"
+            placeholder="Ara"
+            className="search-input"
+          />
+        </div>
       </div>
+
+
+
+
+      {/* Takip Edilebilecek Profil Önerisi */}
+      <div className="profile-suggestion">
+        <div className="suggestion-info">
+        <h2>Bunları beğenebilirsin</h2>
+        <div className="profile-info-right">
+          <img
+            src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
+            alt="Profile"
+            className="profile-photo"
+          />
+          <div className="profile-text">
+            <h4>Gökben Hızlı Sayar</h4>
+            <p className="username">@hizlisayar</p>
+          </div>
+          <button className="follow-button">Takip et</button>
+        </div>
+
+        <div className="profile-info-right">
+          <img
+            src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
+            alt="Profile"
+            className="profile-photo"
+          />
+          <div className="profile-text">
+            <h4>Gökben Hızlı Sayar</h4>
+            <p className="username">@hizlisayar</p>
+          </div>
+          <button className="follow-button">Takip et</button>
+        </div>
+
+        <div className="profile-info-right">
+          <img
+            src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
+            alt="Profile"
+            className="profile-photo"
+          />
+          <div className="profile-text">
+            <h4>Gökben Hızlı Sayar</h4>
+            <p className="username">@hizlisayar</p>
+          </div>
+          <button className="follow-button">Takip et</button>
+        </div>
+
+        <button className="more-button">Daha fazla göster</button>
+        
+      </div>
+      </div>
+
+      {/* İlgini Çekebilecek Gündemler */}
+      <div className="trending">
+        <h2>İlgini çekebilecek gündemler</h2>
+        <div className="trending-item">
+          <p>Akbank</p>
+          <p className="posts-count">36,2 B posts</p>
+        </div>
+        <div className="trending-item">
+          <p>Fulya Öztürk</p>
+          <p className="posts-count">14,3 B posts</p>
+        </div>
+        <div className="trending-item">
+          <p>Arapların</p>
+          <p className="posts-count">3.454 posts</p>
+        </div>
+        <div className="trending-item">
+          <p>Van Ferit Melen Havalimanı'nda</p>
+          <p className="posts-count">2.124 posts</p>
+        </div>
+        <button className="more-button">Daha fazla göster</button>
+      </div>
+
+      {/* Footer */}
+      <footer className="footer">
+        
+          <span >Hizmet Şartları</span>
+          <span>Gizlilik Politikası</span>
+          <span>Çerez Politikası</span>
+          <span>Imprint</span>
+          <span>Erişilebilirlik</span>
+          <span>Reklam bilgisi</span>
+          <span>Daha fazla ...</span>
+        
+        <p>&copy; 2024 X Corp.</p>
+      </footer>
+    </div>
+
     </div>
   );
 };

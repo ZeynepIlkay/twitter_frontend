@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
+  color: white;
   
 }
 
@@ -162,4 +163,163 @@ nav {
   .profile-info-container {
     display: none; /* Profil bilgisi mobilde gizlenir */
   }
+
+}
+
+
+
+
+
+
+/*right container*/
+.right-container {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Arama Kutusu */
+.search-container {
+  margin-bottom: 20px;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px; /* İkon inputun sol tarafına yapışacak */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Yüksekliği input ile aynı olacak */
+}
+
+
+.search-input {
+  width: 60%;
+  padding: 10px 10px 10px 40px;
+  border-radius: 50px;
+  background-color: black;
+  color: white;
+  border: 1px solid gray;
+  outline: none;
+  font-size: 16px;
+  placeholder-color: gray;
+}
+
+.icon {
+  width: 20px;
+  height: 100%;
+}
+/* Takip Edilebilecek Profil Önerisi */
+.profile-suggestion {
+  width: 60%;
+  background-color: black;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.profile-suggestion h2 {
+  margin-bottom: 10px;
+}
+
+.profile-info-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.profile-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.profile-text {
+  margin-left: 10px;
+  flex-grow: 1;
+}
+
+.follow-button {
+  background-color: white;
+  color: black;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* İlgini Çekebilecek Gündemler */
+.trending {
+  width: 60%;
+  background-color: black;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid white;
+}
+
+.trending h2 {
+  font-size: 16px; /* Daha küçük yapıldı */
+  margin-bottom: 10px;
+}
+
+.trending-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.posts-count {
+  color: gray;
+}
+
+.more-button {
+  background-color: transparent;
+  color: rgb(115, 170, 243);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* Footer */
+.footer {
+  background-color: black;
+  font-size: 14px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer p {
+  color: gray;
+  margin-top: 20px;
+}
+
+span {
+  padding-right: 10px; 
 }
