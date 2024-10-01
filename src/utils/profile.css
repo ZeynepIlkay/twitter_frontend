@@ -62,13 +62,10 @@ nav {
   width: 100%; /* Linkler ve buton tam genişlikte */
 }
 
-
-
 .nav-icon {
   margin-right: 20px;
   font-size: 1.25rem;
 }
-
 .icon-container {
   align-items: center; /* Center the icon vertically */
   justify-content: center; /* Center the icon horizontally */
@@ -169,7 +166,7 @@ nav {
   }
 
   .middle-container {
-    width: 160% !important; /* Diğer kolonlar tam genişlik kaplasın */
+    width: 100% !important; /* Diğer kolonlar tam genişlik kaplasın */
   }
 
 
@@ -333,4 +330,115 @@ nav {
 
 span {
   padding-right: 10px; 
+}
+
+
+
+
+
+
+
+
+.middle-container {
+  padding: 20px;
+  border: 1px solid white;
+}
+
+.background-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.middle-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+.middle-profile-image {
+  position: absolute;
+  top: 80%;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #333;
+  transform: translateY(50%);
+
+}
+
+.edit-profile {
+  border-radius: 20px;
+  border: 2px solid white;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  right: 20px;
+  margin-left: 80%;
+}
+.middle-profile-info {
+  padding-left: 20px;
+}
+
+.middle-profile-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.middle-profile-username {
+  color: #888;
+}
+
+.middle-profile-details, .profile-follow-info {
+  color: #555;
+  margin-top: 10px;
+}
+.middle-profile-bio {
+  color: white;
+  margin-top: 10px;
+
+}
+
+.profile-menu {
+  margin-top: 20px;
+  border-bottom: 2px solid #555;
+}
+
+.profile-menu ul {
+  display: flex;
+  gap: 20px;
+}
+
+.profile-menu ul li {
+  cursor: pointer;
+  color: #333;
+}
+
+.profile-menu ul li:hover {
+  color: #1DA1F2; /* Twitter mavisi */
+}
+
+.posts {
+  margin-top: 20px;
+}
+
+.post-card {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+.post-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.post-content {
+  color: #bbb;
 }

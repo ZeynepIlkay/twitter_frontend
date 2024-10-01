@@ -68,11 +68,8 @@ const Profile = () => {
             </a>
           </nav>
         </div>
-
-        {/* Post Button */}
-        
-          <button className="send-button w-full">Gönder</button>
-        
+        {/* Post Button */}        
+          <button className="send-button w-full">Gönder</button>      
 
         {/* Profile Info */}
         <div className="profile-info-container mt-8">
@@ -90,10 +87,57 @@ const Profile = () => {
 
       </div>
 
-      {/* Middle Column - Profile Content */}
-      <div className="middle-container bg-gray-100 p-5 text-white">
-        <h1 className="text-xl font-semibold">Profile Content</h1>
+      <div className="middle-container bg-gray-100 p-5">
+      
+        {/* Arka plan resmi */}
+        <div className="background-container">
+          <img
+            src="./img/bg.jpg"
+            alt="Background"
+            className="background-image"
+          />
+          {/* Profil resmi */}
+          <img
+            src="./img/pp.jpg"
+            alt="Profile"
+            className="middle-profile-image"
+          />
+        </div>
+        
+        {/* Kullanıcı Bilgileri */}
+        
+        <div className="middle-profile-info">
+        <button className='edit-profile'>Profili düzenle</button>
+          <h1 className="middle-profile-name">İlkay Şahin</h1>
+          <p className="middle-profile-username">@zeynepilk_</p>
+          <p className="middle-profile-bio">bir garip hâl</p>
+          <p className="middle-profile-details">
+            <span className="profile-location">📍Turkey</span> Katılım: Eylül 2012
+          </p>
+          <p className="profile-follow-info">25 Takip Edilen 29 Takipçi</p>
+        </div>
+
+        {/* Menü */}
+        <div className="profile-menu">
+          <ul>
+            <li>Gönderiler</li>
+            <li>Yanıtlar</li>
+            <li>Öne Çıkanlar</li>
+            <li>Makaleler</li>
+            <li>Medya</li>
+            <li>Beğeni</li>
+          </ul>
+        </div>
+
+        {/* Gönderiler */}
+        <div className="posts">
+          <div className="post-card">
+            <h2 className="post-title">Gönderi Başlığı</h2>
+            <p className="post-content">Gönderi içeriği...</p>
+          </div>
+        </div>
       </div>
+
 
       {/* Right Column - Additional Widgets */}
       <div className="right-container">
