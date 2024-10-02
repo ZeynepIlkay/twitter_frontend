@@ -88,6 +88,14 @@ const Profile = () => {
       </div>
 
       <div className="middle-container bg-gray-100 p-5">
+        {/* Geri Tuşu, Kullanıcı İsmi ve Gönderi Sayısı */}
+          <div className="header-container">
+            <button className="back-button">←</button>
+            <div className="header-info">
+              <h1 className="user-name-header">İlkay Şahin</h1>
+              <p className="post-count">3 Gönderi</p>
+            </div>
+          </div>
       
         {/* Arka plan resmi */}
         <div className="background-container">

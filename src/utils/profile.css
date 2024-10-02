@@ -136,7 +136,7 @@ nav {
 }
 
 /* Mobil uyum için ayarlar */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .nav-link span {
     display: none; /* Küçük ekranlarda yazılar gizlenir */
   }
@@ -168,6 +168,29 @@ nav {
   .middle-container {
     width: 100% !important; /* Diğer kolonlar tam genişlik kaplasın */
   }
+
+
+
+
+
+
+  
+.edit-profile {
+  border-radius: 20px;
+  border: 2px solid white;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  right: 20px;
+  margin-left: 20%;
+  margin-top: 25%;
+}
+
+.middle-profile-info {
+  padding-left: 10px;
+  margin-top: 12%;
+}
 
 
 
@@ -344,6 +367,38 @@ span {
   border: 1px solid white;
 }
 
+
+/* Geri Tuşu, Kullanıcı İsmi ve Gönderi Sayısı */
+.header-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name-header {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+}
+
+.post-count {
+  color: #888;
+}
+
 .background-container {
   position: relative;
   width: 100%;
@@ -377,10 +432,12 @@ span {
   color: white;
   font-size: 15px;
   right: 20px;
-  margin-left: 80%;
+  margin-left: 75%;
+  margin-top: 20px;
 }
 .middle-profile-info {
   padding-left: 20px;
+
 }
 
 .middle-profile-name {
@@ -403,22 +460,34 @@ span {
 }
 
 .profile-menu {
-  margin-top: 20px;
+  margin-top: 0px;
   border-bottom: 2px solid #555;
 }
 
 .profile-menu ul {
   display: flex;
   gap: 20px;
+  list-style-type: none
+
+  
+}
+
+.menu-item {
+  font-size: large;
 }
 
 .profile-menu ul li {
   cursor: pointer;
-  color: #333;
+  color: #5d5d5d;
+  font-size: 20px;
 }
 
 .profile-menu ul li:hover {
-  color: #1DA1F2; /* Twitter mavisi */
+  background: #211f1f;
+  opacity: 50;
+  border-radius: 10px;
+  padding: 5px 5px;
+  font-size: 22px;
 }
 
 .posts {
@@ -430,7 +499,7 @@ span {
   color: white;
   padding: 20px;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   max-width: 100%;
 }
 
