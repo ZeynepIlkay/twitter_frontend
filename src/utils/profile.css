@@ -4,7 +4,7 @@
   height: 100vh;
 }
 
-.left-container, .middle-container, .right-container {
+.left-container, .right-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -363,7 +363,7 @@ span {
 
 
 .middle-container {
-  padding: 20px;
+  padding-right: 20px;
   border: 1px solid white;
 }
 
@@ -372,6 +372,7 @@ span {
 .header-container {
   display: flex;
   align-items: center;
+  height: 50px;
 
 }
 
@@ -382,6 +383,7 @@ span {
   font-size: 20px;
   cursor: pointer;
   margin-right: 15px;
+  margin-left: 15px ;
 }
 
 .header-info {
@@ -437,12 +439,15 @@ span {
 }
 .middle-profile-info {
   padding-left: 20px;
+  margin-top: 60px;
 
 }
 
 .middle-profile-name {
   font-size: 24px;
   font-weight: bold;
+  color: white;
+  margin-top: 5px;
 }
 
 .middle-profile-username {
@@ -451,7 +456,8 @@ span {
 
 .middle-profile-details, .profile-follow-info {
   color: #555;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 .middle-profile-bio {
   color: white;
@@ -462,6 +468,7 @@ span {
 .profile-menu {
   margin-top: 0px;
   border-bottom: 2px solid #555;
+  margin-left: 20px;
 }
 
 .profile-menu ul {
@@ -479,7 +486,7 @@ span {
 .profile-menu ul li {
   cursor: pointer;
   color: #5d5d5d;
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .profile-menu ul li:hover {
@@ -487,7 +494,7 @@ span {
   opacity: 50;
   border-radius: 10px;
   padding: 5px 5px;
-  font-size: 22px;
+  font-size: 19px;
 }
 
 .posts {
@@ -501,6 +508,7 @@ span {
   border-radius: 10px;
   margin-bottom: 5px;
   max-width: 100%;
+  margin-left: 20px;
 }
 
 .post-title {
