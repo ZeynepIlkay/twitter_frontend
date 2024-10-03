@@ -1,10 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faSearch, faBell, faEnvelope, faUser, faEllipsisH, faUsers } from '@fortawesome/free-solid-svg-icons';
 import './profile.css';
-import { FaSlash } from 'react-icons/fa';
+import { FaSlash, FaHeart, FaComment, FaRetweet, FaEllipsisH, FaChartBar, FaBookmark, FaDownload } from 'react-icons/fa';
+
 
 const Profile = () => {
+  
+  const [posts, setPosts] = useState([]);
+
+  const [activeTab, setActiveTab] = useState('posts'); // Aktif sekmeyi takip et
+
+  // Gönderileri filtreleme fonksiyonu
+  const getFilteredPosts = () => {
+    switch (activeTab) {
+      case 'likes':
+        return posts.filter(post => post.isFavorited === true);
+      case 'posts':
+        return posts.filter(post => post.username === "İlkay Şahin");
+      case 'replies':
+        return posts.filter(post => post.comments > 0);
+      case 'media' :
+        return posts.filter(post => post.image !== null && post.username === "İlkay Şahin")
+      default:
+        return posts;
+    }
+  };  
+
+  useEffect(() => {
+    // XHR ile JSON verilerini çekiyoruz
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "./posts.json", true);
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        setPosts(data);
+      }
+    };
+    xhr.send();
+  }, []);
+
+  // Beğeniyi yönetme fonksiyonu
+  const handleLike = (index) => {
+    const updatedPosts = [...posts];
+    updatedPosts[index].liked = !updatedPosts[index].liked;
+    updatedPosts[index].likes += updatedPosts[index].liked ? 1 : -1;
+    setPosts(updatedPosts);
+  };
+
+  // Retweet yönetme fonksiyonu
+  const handleRetweet = (index) => {
+    const updatedPosts = [...posts];
+    updatedPosts[index].retweeted = !updatedPosts[index].retweeted;
+    updatedPosts[index].retweets += updatedPosts[index].retweeted ? 1 : -1;
+    setPosts(updatedPosts);
+  };
+ 
+
   return (
     <div className="profileContainer grid grid-cols-3 h-screen">
       {/* Left Column - Navigation */}
@@ -74,11 +126,11 @@ const Profile = () => {
         {/* Profile Info */}
         <div className="profile-info-container mt-8">
         <div className="profile-info">
-        <img src="https://i.pravatar.cc/150?img=3" alt="Profile" className="profile-image" />
+        <img src="./img/pp.jpg" alt="Profile" className="profile-image" />
 
             <div>
             <h4 className="font-semibold">İlkay Şahin</h4>
-            <p className="text-gray-500">@zeynepilk_</p>
+            <p className="text-gray-500">@xxilkay</p>
             </div>
         </div>
         <div className="more-options">⋮</div>
@@ -117,10 +169,10 @@ const Profile = () => {
         <div className="middle-profile-info">
         <button className='edit-profile'>Profili düzenle</button>
           <h1 className="middle-profile-name">İlkay Şahin</h1>
-          <p className="middle-profile-username">@zeynepilk_</p>
+          <p className="middle-profile-username">@xxilkay</p>
           <p className="middle-profile-bio">bir garip hâl</p>
           <p className="middle-profile-details">
-            <span className="profile-location">📍Turkey</span> Katılım: Eylül 2012
+            <span className="profile-location">📍Turkey</span> Eylül 2012 tarihinde katıldı
           </p>
           <p className="profile-follow-info">25 Takip Edilen 29 Takipçi</p>
         </div>
@@ -128,24 +180,90 @@ const Profile = () => {
         {/* Menü */}
         <div className="profile-menu">
           <ul>
-            <li>Gönderiler</li>
-            <li>Yanıtlar</li>
-            <li>Öne Çıkanlar</li>
-            <li>Makaleler</li>
-            <li>Medya</li>
-            <li>Beğeni</li>
+            <li className={activeTab === 'posts' ? 'active' : ''} onClick={() => setActiveTab('posts')}>Gönderiler</li>
+            <li className={activeTab === 'replies' ? 'active' : ''} onClick={() => setActiveTab('replies')}>Yanıtlar</li>
+            <li className={activeTab === 'featured' ? 'active' : ''} onClick={() => setActiveTab('featured')}>Öne Çıkanlar</li>
+            <li className={activeTab === 'articles' ? 'active' : ''} onClick={() => setActiveTab('articles')}>Makaleler</li>
+            <li className={activeTab === 'media' ? 'active' : ''} onClick={() => setActiveTab('media')}>Medya</li>
+            <li className={activeTab === 'likes' ? 'active' : ''} onClick={() => setActiveTab('likes')}>Beğeni</li>
           </ul>
         </div>
 
         {/* Gönderiler */}
         <div className="posts">
-          <div className="post-card">
-            <h2 className="post-title">Gönderi Başlığı</h2>
-            <p className="post-content">Gönderi içeriği...</p>
+        {activeTab === 'articles' ? (
+          <div className="article-prompt text-center">
+            <h1 className="premium-text-header font-bold text-2xl">X'te Makale yaz</h1>
+            <p className='premium-text'>X'te Makale yazmak için Premium+ abonesi olman gerekir</p>
+            <button className="premium-button mt-4">Premium+ kademesine yükselt</button>
           </div>
-        </div>
-      </div>
+        ) : activeTab === 'featured' ? (
+          <div className="featured-prompt text-center">
+            <h1 className="featured-text-header font-bold text-2xl">Profilinde öne çıkar</h1>
+            <p className='featured-text'>Profilinde gönderileri öne çıkarmak için Premium abonesi olman gerekir.</p>
+            <button className="featured-button mt-4">Premium+ kademesine yükselt</button>
+          </div>
+        ) : (getFilteredPosts().map((post, index) => (
+          <div className="post-card bg-white shadow-lg p-4 mb-4 rounded-lg" key={index}>
+            {/* Gönderen Bilgileri */}
+            <div className="post-header flex justify-between items-center">
+              <div className="post-user-info flex items-center">
+                <img
+                  src={post.avatar}
+                  alt="User Avatar"
+                  className="w-10 h-10 rounded-full mr-3"
+                />
+                <div>
+                  <span className="font-bold">{post.username}</span>{" "}
+                  <span className="text">{post.handle}</span> ·{" "}
+                  <span className="text-date">{post.date}</span>
+                </div>
+              </div>
+              {/* Üç Nokta Menüsü */}
+              <FaEllipsisH className="dot-dot-dot" />
+            </div>
 
+            {/* Gönderi İçeriği */}
+            <div className="post-content mt-3">
+              <p>{post.content}</p>
+              {post.image && (
+                <img
+                  src={post.image}
+                  alt="Post Content"
+                  className="mt-3 w-full rounded-lg"
+                />
+              )}
+            </div>
+
+            {/* Gönderi İkonları */}
+            <div className="post-actions flex justify-between items-center mt-4 text-gray-600">
+              <div className="flex items-center">
+                <FaComment className="mr-2 cursor-pointer" />
+                <span>{post.comments}</span>
+              </div>
+              <div className="flex items-center">
+                <FaRetweet
+                  className={`mr-2 cursor-pointer ${post.retweeted ? 'text-green-500' : ''}`}
+                  onClick={() => handleRetweet(index)}
+                />
+                <span>{post.retweets}</span>
+              </div>
+              <div className="flex items-center">
+                <FaHeart
+                  className={`mr-2 cursor-pointer ${post.isFavorited ? 'text-red-500' : ''}`}
+                  onClick={() => handleLike(index)}
+                />
+                <span>{post.likes}</span>
+              </div>
+              <FaChartBar className="cursor-pointer" />
+              <FaBookmark className="cursor-pointer" />
+              <FaDownload className="cursor-pointer" />
+            </div>
+          </div>
+        ))
+      )}
+      </div>
+      </div>
 
       {/* Right Column - Additional Widgets */}
       <div className="right-container">
@@ -183,13 +301,26 @@ const Profile = () => {
         <h2>Bunları beğenebilirsin</h2>
         <div className="profile-info-right">
           <img
-            src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
+            src="https://pagedone.io/asset/uploads/1704275541.png"
             alt="Profile"
             className="profile-photo"
           />
           <div className="profile-text">
-            <h4>Gökben Hızlı Sayar</h4>
-            <p className="username">@hizlisayar</p>
+            <h4>Emre Gökbelen</h4>
+            <p className="username">@kirmizikedi</p>
+          </div>
+          <button className="follow-button">Takip et</button>
+        </div>
+
+        <div className="profile-info-right">
+          <img
+            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1061&amp;q=80"
+            alt="Profile"
+            className="profile-photo"
+          />
+          <div className="profile-text">
+            <h4>Aysu Nevra</h4>
+            <p className="username">@kıtırıkçıl</p>
           </div>
           <button className="follow-button">Takip et</button>
         </div>
@@ -201,21 +332,8 @@ const Profile = () => {
             className="profile-photo"
           />
           <div className="profile-text">
-            <h4>Gökben Hızlı Sayar</h4>
-            <p className="username">@hizlisayar</p>
-          </div>
-          <button className="follow-button">Takip et</button>
-        </div>
-
-        <div className="profile-info-right">
-          <img
-            src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
-            alt="Profile"
-            className="profile-photo"
-          />
-          <div className="profile-text">
-            <h4>Gökben Hızlı Sayar</h4>
-            <p className="username">@hizlisayar</p>
+            <h4>Yakup Mert</h4>
+            <p className="username">@mertyakup</p>
           </div>
           <button className="follow-button">Takip et</button>
         </div>

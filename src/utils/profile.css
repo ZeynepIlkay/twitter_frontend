@@ -4,20 +4,16 @@
   height: 100vh;
 }
 
-.left-container, .right-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  color: white;
-  
-}
+
 
 .left-container {
+  display: flex;
+  flex-direction: column;
   background-color: black;
   color: white;
   align-items: center;
   justify-content: flex-start;
+  padding: 20px;
   font-size: 25px;
 }
 
@@ -201,20 +197,22 @@ nav {
 
 
 
-
 /*right container*/
 .right-container {
   background-color: black;
   color: white;
-  padding: 20px;
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  
+
 }
 
 /* Arama Kutusu */
 .search-container {
   margin-bottom: 20px;
+  margin-top: 0;
 }
 
 .input-wrapper {
@@ -236,10 +234,11 @@ nav {
 
 
 .search-input {
-  width: 65%;
+  width: 70%;
   padding: 10px 10px 10px 40px;
+  margin-top: 0;
   border-radius: 50px;
-  background-color: black;
+  background-color: rgb(27, 27, 27);
   color: white;
   border: 1px solid gray;
   outline: none;
@@ -253,11 +252,11 @@ nav {
 }
 /* Takip Edilebilecek Profil Önerisi */
 .profile-suggestion {
-  width: 60%;
+  width: 70%;
   background-color: black;
   padding: 20px;
   border-radius: 15px;
-  border: 1px solid white;
+  border: 1px solid #555;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -298,11 +297,11 @@ nav {
 
 /* İlgini Çekebilecek Gündemler */
 .trending {
-  width: 60%;
+  width: 70%;
   background-color: black;
   padding: 20px;
   border-radius: 15px;
-  border: 1px solid white;
+  border: 1px solid #555;
 }
 
 .trending h2 {
@@ -364,7 +363,8 @@ span {
 
 .middle-container {
   padding-right: 20px;
-  border: 1px solid white;
+  border: 1px solid #555;
+  
 }
 
 
@@ -469,8 +469,29 @@ span {
   margin-top: 0px;
   border-bottom: 2px solid #555;
   margin-left: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.profile-menu-item {
+  padding: 10px 20px;
+  color: #8899a6;
+  cursor: pointer;
+  position: relative;
+}
+.profile-menu-item.active {
+  color: white;
+  font-weight: bold;
 }
 
+.profile-menu-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #1DA1F2; /* Mavi alt çubuk */
+}
 .profile-menu ul {
   display: flex;
   gap: 20px;
@@ -480,7 +501,24 @@ span {
 }
 
 .menu-item {
-  font-size: large;
+  padding: 10px 15px;
+  color: #8899a6;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+.menu-item.active {
+  color: white;
+  font-weight: bold;
+}
+.menu-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #1DA1F2; /* Twitter mavi tonu */
 }
 
 .profile-menu ul li {
@@ -502,20 +540,82 @@ span {
 }
 
 .post-card {
-  background-color: #333;
+  background-color: black;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 5px;
-  max-width: 100%;
-  margin-left: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #555;
 }
 
-.post-title {
-  font-size: 18px;
-  font-weight: bold;
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
+.post-user-info {
+  display: flex;
+  align-items: center;
+}
+
+.post-user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-user-details {
+  display: flex;
+  align-items: center;
+}
+
+.post-user-details span {
+  margin-right: 5px;
+  color: #8899a6;
+}
+
+.post-date {
+  color: #8899a6;
+}
+.text, .text-date , .dot-dot-dot{
+  color: #555;
+} 
 .post-content {
-  color: #bbb;
+  margin-top: 10px;
+}
+
+.post-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  color: #8899a6;
+}
+
+.premium-text-header, .featured-text-header {
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+ .premium-text , .featured-text{
+  color: #555;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.premium-button, .featured-button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  padding: 10px;
+  background-color: white;
+  font-size: large;
 }
