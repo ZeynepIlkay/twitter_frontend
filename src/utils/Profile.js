@@ -3,13 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faSearch, faBell, faEnvelope, faUser, faEllipsisH, faUsers } from '@fortawesome/free-solid-svg-icons';
 import './profile.css';
 import { FaSlash, FaHeart, FaComment, FaRetweet, FaEllipsisH, FaChartBar, FaBookmark, FaDownload } from 'react-icons/fa';
-
+import Modal from './Modal';
 
 const Profile = () => {
   
   const [posts, setPosts] = useState([]);
 
   const [activeTab, setActiveTab] = useState('posts'); // Aktif sekmeyi takip et
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   // Gönderileri filtreleme fonksiyonu
   const getFilteredPosts = () => {
@@ -19,7 +24,7 @@ const Profile = () => {
       case 'posts':
         return posts.filter(post => post.username === "İlkay Şahin");
       case 'replies':
-        return posts.filter(post => post.comments > 0);
+        return posts.filter(post => post.retweeted === true);
       case 'media' :
         return posts.filter(post => post.image !== null && post.username === "İlkay Şahin")
       default:
@@ -48,6 +53,8 @@ const Profile = () => {
     setPosts(updatedPosts);
   };
 
+  
+
   // Retweet yönetme fonksiyonu
   const handleRetweet = (index) => {
     const updatedPosts = [...posts];
@@ -58,7 +65,9 @@ const Profile = () => {
  
 
   return (
+    
     <div className="profileContainer grid grid-cols-3 h-screen">
+
       {/* Left Column - Navigation */}
       <div className="left-container bg-black text-white flex flex-col items-center justify-between p-5">
       <div className="logo">
@@ -120,8 +129,10 @@ const Profile = () => {
             </a>
           </nav>
         </div>
-        {/* Post Button */}        
-          <button className="send-button w-full">Gönder</button>      
+        {/* Post Button */}    
+        <button className="send-button w-full" onClick={openModal}>Gönder</button>
+        <Modal isOpen={isModalOpen} onClose={closeModal} />    
+     
 
         {/* Profile Info */}
         <div className="profile-info-container mt-8">
@@ -205,6 +216,13 @@ const Profile = () => {
           </div>
         ) : (getFilteredPosts().map((post, index) => (
           <div className="post-card bg-white shadow-lg p-4 mb-4 rounded-lg" key={index}>
+                {/* Retweet Bilgisi */}
+                {post.retweeted && (
+                  <div className="retweet-info flex items-center mb-2">
+                    <FaRetweet className="retweet-icon mr-2 text-green-500" />
+                    <span className="retweet-text">Yeniden yayınladınız</span>
+                  </div>
+                )}
             {/* Gönderen Bilgileri */}
             <div className="post-header flex justify-between items-center">
               <div className="post-user-info flex items-center">
@@ -401,7 +419,35 @@ const Profile = () => {
       </footer>
     </div>
 
+        {/* Mobil Navbar */}
+    <div className="mobile-nav">
+      <a href="/home" className="mobile-nav-icon">
+        <FontAwesomeIcon icon={faHome} />
+      </a>
+      <a href="/search" className="mobile-nav-icon">
+        <FontAwesomeIcon icon={faSearch} />
+      </a>
+      <a href="/grok" className="mobile-nav-icon">
+        <FaSlash />
+      </a>
+      <a href="/notifications" className="mobile-nav-icon">
+        <FontAwesomeIcon icon={faBell} />
+      </a>
+      <a href="/community" className="mobile-nav-icon">
+        <FontAwesomeIcon icon={faUsers} />
+      </a>
     </div>
+
+    {/* Mobil Gönder Butonu */}
+    
+
+    <button className="send-button-mobile" onClick={openModal}>Gönder</button>
+    <Modal isOpen={isModalOpen} onClose={closeModal} />
+
+
+    </div>
+
+    
   );
 };
 

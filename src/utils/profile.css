@@ -1,7 +1,14 @@
+
 .profileContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Üç eşit sütun */
+  grid-template-columns: 450px 1fr 450px; /* Üç eşit sütun */
   height: 100vh;
+  min-width: 780px; /* Minimum genişlik */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Genel kaydırmayı engelle */
+  flex-direction: column; /* Mobil için uygun hizalama */
+  
 }
 
 
@@ -15,6 +22,13 @@
   justify-content: flex-start;
   padding: 20px;
   font-size: 25px;
+
+   /* Scrollbar'ları gizleme */
+   -ms-overflow-style: none;  /* IE ve Edge */
+   scrollbar-width: none;  /* Firefox */
+ 
+ 
+  overflow-y: auto; /* İçerik taşarsa kaydır */
 }
 
 /* Logo üstte sabit, ikonlarla aynı hizada */
@@ -133,6 +147,16 @@ nav {
 
 /* Mobil uyum için ayarlar */
 @media (max-width: 1400px) {
+
+  .profileContainer {
+    display: grid;
+    grid-template-columns: 150px 600px 250px; /* Üç eşit sütun */
+    height: 100vh;
+    min-width: 780px; /* Minimum genişlik */
+    overflow: hidden; /* Genel kaydırmayı engelle */
+    
+  }
+  
   .nav-link span {
     display: none; /* Küçük ekranlarda yazılar gizlenir */
   }
@@ -163,6 +187,9 @@ nav {
 
   .middle-container {
     width: 100% !important; /* Diğer kolonlar tam genişlik kaplasın */
+    max-width: 600px !important;
+    min-width: 500px !important;
+    height: 100% !important;
   }
 
 
@@ -188,6 +215,11 @@ nav {
   margin-top: 12%;
 }
 
+.mobile-nav, .send-button-mobile {
+  display: none;
+}
+
+
 
 
 }
@@ -206,19 +238,29 @@ nav {
   flex-direction: column;
   gap: 20px;
   
-
+  overflow-y: auto; /* İçerik taşarsa kaydır */
+   /* Scrollbar'ları gizleme */
+   -ms-overflow-style: none;  /* IE ve Edge */
+   scrollbar-width: none;  /* Firefox */
 }
 
 /* Arama Kutusu */
 .search-container {
   margin-bottom: 20px;
   margin-top: 0;
+
+  position: sticky;
+  z-index: 10;
+  top: 0;
 }
 
 .input-wrapper {
-  position: relative;
+
   width: 100%;
   max-width: 400px;
+  background-color: black;
+
+
 }
 
 .search-icon {
@@ -365,6 +407,15 @@ span {
   padding-right: 20px;
   border: 1px solid #555;
   
+
+  overflow-y: auto; /* İçerik taşarsa kaydır */
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+   /* Scrollbar'ları gizleme */
+   -ms-overflow-style: none;  /* IE ve Edge */
+   scrollbar-width: none;  /* Firefox */
+ 
 }
 
 
@@ -373,6 +424,12 @@ span {
   display: flex;
   align-items: center;
   height: 50px;
+  background-color: black;
+  width: 600px;
+
+  position: sticky; /* Sabit pozisyon */
+  top: 0;
+  z-index: 10; /* Diğer içeriklerin üzerinde görünmesini sağlar */
 
 }
 
@@ -507,25 +564,8 @@ span {
   cursor: pointer;
   position: relative;
 }
-.menu-item.active {
-  color: white;
-  font-weight: bold;
-}
-.menu-item.active::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: #1DA1F2; /* Twitter mavi tonu */
-}
 
-.profile-menu ul li {
-  cursor: pointer;
-  color: #5d5d5d;
-  font-size: 19px;
-}
+
 
 .profile-menu ul li:hover {
   background: #211f1f;
@@ -535,6 +575,43 @@ span {
   font-size: 19px;
 }
 
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  cursor: pointer;
+  color: #5d5d5d;
+  font-size: 19px;
+  
+}
+
+ul li.active {
+  color: #1da1f2;
+}
+
+ul li.active:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #1da1f2;
+  width: 100%;
+}
+
+
+
+
 .posts {
   margin-top: 20px;
 }
@@ -543,7 +620,6 @@ span {
   background-color: black;
   color: white;
   padding: 10px;
-  margin-bottom: 20px;
   border-bottom: 1px solid #555;
 }
 
@@ -619,3 +695,145 @@ span {
   background-color: white;
   font-size: large;
 }
+
+.retweet-info {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.mobile-nav, .send-button-mobile {
+  display: none;
+}
+
+
+.article-prompt, .featured-prompt {
+  margin-bottom: 50px;
+}
+
+
+@media (max-width: 450px) {
+
+  .profileContainer {
+    display: grid;
+    grid-template-columns: 0px 100px; /* Üç eşit sütun */
+    height: 100vh;
+    min-width: 780px; /* Minimum genişlik */
+    overflow: hidden; /* Genel kaydırmayı engelle */
+    
+  }
+  
+  .nav-link span {
+    display: none; /* Küçük ekranlarda yazılar gizlenir */
+  }
+  .left-container{
+    font-size: 30px;
+    display: none;
+  }
+
+  .send-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Yuvarlak buton */
+    justify-content: center;
+    padding: 0;
+  
+    background-image: url('C:/Users/zeyne/OneDrive/Masaüstü/twitter_frontend/public/img/gonder.png'); /* Twitter'ın gönder logosunun yolunu belirtin */
+    background-size: cover; /* Resmin buton alanını tamamen kaplamasını sağlayın */
+    font-size: 0; /* Metin yerine bir resim kullandığımız için metni gizleyin */
+  }
+  
+
+  .profile-info-container {
+    display: none; /* Profil bilgisi mobilde gizlenir */
+  }
+
+  .right-container {
+    display: none !important; /* Sağ kolon 768px'den küçükse gizle */
+  }
+
+  .middle-container {
+    width: 100% !important; /* Diğer kolonlar tam genişlik kaplasın */
+    max-width: 600px !important;
+    min-width: 500px !important;
+    height: 100% !important;
+  }
+
+
+
+
+
+
+  
+.edit-profile {
+  border-radius: 20px;
+  border: 2px solid white;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  right: 20px;
+  margin-left: 50%;
+  margin-top: 5%;
+}
+
+.middle-profile-info {
+  padding-left: 10px;
+  margin-top: 12%;
+}
+
+.post-actions {
+  margin-bottom: 50px;
+}
+
+
+
+/* Alt kısımda görünmesini istediğimiz ikonlar */
+.mobile-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  padding: 10px 0;
+  z-index: 1000;
+  margin-top: 10px;
+}
+
+.mobile-nav-icon {
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* Gönder butonunu sabitlemek için */
+.send-button-mobile {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  background-color: #1DA1F2;
+  background-image: url('C:/Users/zeyne/OneDrive/Masaüstü/twitter_frontend/public/img/gonder.png');
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  font-size: 0;
+}
+
+.profile-menu ul li {
+  cursor: pointer;
+  color: #5d5d5d;
+  font-size: 16px;
+}
+
+
+
+
+
+}
+
