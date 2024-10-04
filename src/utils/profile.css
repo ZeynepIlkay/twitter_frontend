@@ -3,11 +3,11 @@
   display: grid;
   grid-template-columns: 450px 1fr 450px; /* Üç eşit sütun */
   height: 100vh;
-  min-width: 780px; /* Minimum genişlik */
   margin: 0;
   padding: 0;
   overflow: hidden; /* Genel kaydırmayı engelle */
   flex-direction: column; /* Mobil için uygun hizalama */
+
   
 }
 
@@ -146,13 +146,12 @@ nav {
 }
 
 /* Mobil uyum için ayarlar */
-@media (max-width: 1400px) {
+@media (max-width: 1300px) {
 
   .profileContainer {
     display: grid;
-    grid-template-columns: 150px 600px 250px; /* Üç eşit sütun */
+    grid-template-columns: 300px 600px 350px; /* Üç eşit sütun */
     height: 100vh;
-    min-width: 780px; /* Minimum genişlik */
     overflow: hidden; /* Genel kaydırmayı engelle */
     
   }
@@ -181,9 +180,7 @@ nav {
     display: none; /* Profil bilgisi mobilde gizlenir */
   }
 
-  .right-container {
-    display: none !important; /* Sağ kolon 768px'den küçükse gizle */
-  }
+ 
 
   .middle-container {
     width: 100% !important; /* Diğer kolonlar tam genişlik kaplasın */
@@ -193,7 +190,9 @@ nav {
   }
 
 
-
+  .right-container {
+    display: none !important; /* Sağ kolon 768px'den küçükse gizle */
+  }
 
 
 
@@ -220,8 +219,6 @@ nav {
 }
 
 
-
-
 }
 
 
@@ -233,7 +230,7 @@ nav {
 .right-container {
   background-color: black;
   color: white;
-  padding-left: 20px;
+  padding-left: 60px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -426,7 +423,7 @@ span {
   height: 50px;
   background-color: black;
   width: 600px;
-
+  opacity: 0.6;
   position: sticky; /* Sabit pozisyon */
   top: 0;
   z-index: 10; /* Diğer içeriklerin üzerinde görünmesini sağlar */
@@ -528,6 +525,8 @@ span {
   margin-left: 20px;
   display: flex;
   justify-content: space-around;
+  -ms-overflow-style: none;  /* IE ve Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 .profile-menu-item {
   padding: 10px 20px;
@@ -714,11 +713,11 @@ ul li.active:after {
 @media (max-width: 450px) {
 
   .profileContainer {
-    display: grid;
-    grid-template-columns: 0px 100px; /* Üç eşit sütun */
-    height: 100vh;
-    min-width: 780px; /* Minimum genişlik */
+    display: grid !important;
+    grid-template-columns: 0px 1fr 0px !important; /* Üç eşit sütun */
+    height: 100% !important;
     overflow: hidden; /* Genel kaydırmayı engelle */
+    width: 110% !important;
     
   }
   
@@ -830,6 +829,13 @@ ul li.active:after {
   color: #5d5d5d;
   font-size: 16px;
 }
+
+.profile-menu {
+  width: 70%;
+  overflow-x: auto; /* Yatay kaydırma */
+  white-space: nowrap; /* Öğeleri aynı satırda tutar */
+}
+
 
 
 
