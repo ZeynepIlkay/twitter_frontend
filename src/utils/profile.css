@@ -153,7 +153,7 @@ nav {
 
   .profileContainer {
     display: grid;
-    grid-template-columns: 300px 600px 350px; /* Üç eşit sütun */
+    grid-template-columns: 150px 600px 350px; /* Üç eşit sütun */
     height: 100vh;
     overflow: hidden; /* Genel kaydırmayı engelle */
     
@@ -164,6 +164,8 @@ nav {
   }
   .left-container{
     font-size: 30px;
+    max-width: 150px;
+
   }
 
   .send-button {
