@@ -10,6 +10,5 @@ Bu proje, Twitter'ın frontend yapısına benzer bir tasarım ve işlevsellik su
 - **Duyarlı Tasarım**: Uygulama mobil cihazlarda ve masaüstü ekranlarda çalışır.
 - **İkonlar**: FontAwesome ile çeşitli simgeler kullanılarak kullanıcı dostu bir deneyim sağlanır.
 
-![image](https://github.com/user-attachments/assets/59395714-e238-41d9-95e9-927427b0142b)
-![image](https://github.com/user-attachments/assets/624c84b7-effd-470a-8e8a-1b210615e378)
+![image](https://github.com/user-attachments/assets/59395714-e238-41d9-95e9-927427b0142b) ![image](https://github.com/user-attachments/assets/624c84b7-effd-470a-8e8a-1b210615e378)
 
