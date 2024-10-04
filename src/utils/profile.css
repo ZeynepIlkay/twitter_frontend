@@ -1,3 +1,6 @@
+html, body, #root {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
 
 .profileContainer {
   display: grid;
@@ -21,7 +24,7 @@
   align-items: center;
   justify-content: flex-start;
   padding: 20px;
-  font-size: 25px;
+  font-size: 18px;
 
    /* Scrollbar'ları gizleme */
    -ms-overflow-style: none;  /* IE ve Edge */
@@ -498,14 +501,15 @@ span {
 }
 
 .middle-profile-name {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   color: white;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .middle-profile-username {
   color: #888;
+  font-size: 15px;
 }
 
 .middle-profile-details, .profile-follow-info {
@@ -516,6 +520,7 @@ span {
 .middle-profile-bio {
   color: white;
   margin-top: 10px;
+  font-size: 15px;
 
 }
 
@@ -550,7 +555,7 @@ span {
 }
 .profile-menu ul {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   list-style-type: none
 
   
@@ -570,8 +575,8 @@ span {
   background: #211f1f;
   opacity: 50;
   border-radius: 10px;
-  padding: 5px 5px;
-  font-size: 19px;
+  padding: 2px 2px;
+
 }
 
 
@@ -589,7 +594,7 @@ ul li {
   position: relative;
   cursor: pointer;
   color: #5d5d5d;
-  font-size: 19px;
+  font-size: 15px;
   
 }
 
